@@ -22,12 +22,21 @@ body {
 }
 
 .header {
+    display: flex;
+    flex-wrap: wrap;
     top: 0;
     text-align: center;
     font-size: 25px;
     margin: 0 auto;
-    padding: 0 auto;
+    padding: 5px;
     color: white;
+    text-wrap: wrap;
+}
+
+.header h1 {
+    margin: 10px 0;
+    padding: 0 10px;
+    line-height: 1.1;
 }
 
 #navbar-container {
@@ -78,6 +87,7 @@ nav a:hover {
 nav ul ul {
 	display: none;
     position: absolute;
+    background-color: white;
 	top: 60px; /*the height of the main nav*/
 }
 
@@ -100,6 +110,7 @@ nav ul ul li {
 	width:200px;
 	float:none; 
     position: relative;
+    z-index: 1;
     border: solid 1px rgb(191, 191, 191);
 }
 
@@ -170,9 +181,56 @@ li > a:only-child:after { content: ''; }
     padding: 10px;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 612px) {
     body{
         max-width: 100%;
+    }
+
+    #navbar-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav ul ul {
+        display: none; /* Hide submenus by default */
+        top: 0px;
+    }
+    
+    nav ul li:hover > ul {
+        display: flex; /* Show submenus on hover */
+        flex-direction: column;
+        justify-content: center;
+        position: relative; /* Adjust positioning */
+    }
+
+    nav ul ul li {
+        width: 100%;
+    }
+
+    nav ul ul li:hover > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        left: 0px;
+        top: 0px;
+    }
+
+    nav ul ul ul li {
+        width: 100%;
+        display: relative;
     }
 
     #main-page-container {
