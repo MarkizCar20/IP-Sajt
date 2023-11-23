@@ -141,6 +141,30 @@ li > a:only-child:after { content: ''; }
     border: 1px solid whitesmoke;
 }
 
+.opstine-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.opstine-container li p {
+    color: black;
+    font-weight:900;
+}
+
+.opstine-container li ul {
+    display: none;
+    list-style: none;
+}
+
+.opstine-container li:hover > ul {
+    display: inherit;
+}
+
 .right-main-page {
     flex: 1;
     display: flex;
@@ -179,6 +203,22 @@ li > a:only-child:after { content: ''; }
     overflow: auto;
     justify-content: center;
     padding: 10px;
+}
+
+.vesti_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vesti_container ul {
+    list-style: none;
+}
+
+.vesti_container ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 @media (max-width: 612px) {
