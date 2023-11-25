@@ -184,9 +184,9 @@ li > a:only-child:after { content: ''; }
 }
 
 .controler-list-container li button {
-    background-color: red;
+    background-color: grey;
     color: white;
-    padding: 14px 20px;
+    padding: 10px 20px;
     margin: 8px;
     border: none;
     cursor: pointer;
@@ -338,6 +338,23 @@ li > a:only-child:after { content: ''; }
 .news-container li p a {
     text-decoration: none;
     text-emphasis-color: black;
+}
+
+#voting_place_add_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+}
+
+.dropdown {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    width: 100%;
 }
 
 @media (max-width: 612px) {
