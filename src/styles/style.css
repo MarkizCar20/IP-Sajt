@@ -19,12 +19,12 @@ body {
     align-items: center;
     max-width: 80vw;
     margin: auto;
+    height: 100vh;
 }
 
 .header {
     display: flex;
     flex-wrap: wrap;
-    top: 0;
     text-align: center;
     font-size: 25px;
     margin: 0 auto;
@@ -219,6 +219,77 @@ li > a:only-child:after { content: ''; }
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+#login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    max-height: 80vh;
+    max-width: 90vw;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container label {
+    height: 40px;
+    font-size: 25px;
+    margin: 5px;
+}
+
+.form-container input {
+    height: 25px;
+    width: 200px;
+}
+
+.form-container label input {
+    width: 20px;
+}
+
+.form-container button {
+    margin: 5px;
+}
+
+#news-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    max-height: 80vh;
+    max-width: 90vw;
+    overflow: auto;
+}
+
+.news-container {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-container li {
+    display: inherit;
+    flex-direction: row;
+}
+
+.news-container li p {
+    margin: 5px;
+}
+
+.news-container li p a {
+    text-decoration: none;
+    text-emphasis-color: black;
 }
 
 @media (max-width: 612px) {
