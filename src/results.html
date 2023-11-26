@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="header">
+        <!-- Zaglavlje stranice -->
+        <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
+    </div>
+    <div id="navbar-container">
+        <nav>
+            <uL>
+                <li><a href="first_nav.html">Naslovna</a></li>
+                <li>
+                    <a href="results.html">Izborni rezultati</a>
+                    <ul>
+                        <li><a href="#">Unesi rezultate</a></li>
+                        <li><a href="#">Azuriraj rezultate</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news.html">Vesti</a>
+                    <ul>
+                        <li><a href="add_news.html">Unesi vest</a></li>
+                        <li><a href="#">Azuriraj vesti</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html">Uloguj se</a></li>
+            </uL>
+        </nav>
+    </div>
+    <div id="results-container">
+        <h2>Rezultati Izbora</h2>
+
+        <div class="party-result">
+            <span class="party-name">Stranka Zdravog Razuma - SZR- Srećko Šojić:</span>
+            <span id="party1-votes">1200</span>
+        </div>
+
+        <div class="party-result">
+            <span class="party-name">Savez vojvođanskih Mađara - SvM - Ištvan Pastor:</span>
+            <span id="party2-votes">900</span>
+        </div>
+
+        <!-- Add more party result divs for other parties -->
+
+        <div id="overall-votes">Ukupan broj glasova: 2100</div>
+        <div id="invalid-votes">Nevažeći Listići: 50</div>
+        <div id="num-voters">Ukupan broj birača: 1800</div>
+    </div>
+
+</body>
+</html>

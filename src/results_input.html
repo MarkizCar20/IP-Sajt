@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="header">
+        <!-- Zaglavlje stranice -->
+        <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
+    </div>
+    <div id="navbar-container">
+        <nav>
+            <uL>
+                <li><a href="first_nav.html">Naslovna</a></li>
+                <li>
+                    <a href="results.html">Izborni rezultati</a>
+                    <ul>
+                        <li><a href="#">Unesi rezultate</a></li>
+                        <li><a href="#">Azuriraj rezultate</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news.html">Vesti</a>
+                    <ul>
+                        <li><a href="add_news.html">Unesi vest</a></li>
+                        <li><a href="#">Azuriraj vesti</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html">Uloguj se</a></li>
+            </uL>
+        </nav>
+    </div>
+    <div id="login-container">
+        <div id="login-container">
+            <form>
+                <div class="form-container">
+                    <label for="votenumber"><b>Partija 1 - broj glasova:</b></label>
+                    <input type="text" placeholder="Unesite broj glasova" name="votenumber" required>
+
+                    <label for="votenumber"><b>Partija 2 - broj glasova:</b></label>
+                    <input type="text" placeholder="Unesite broj glasova" name="votenumber" required>
+
+                    <label for="votenumber"><b>Partija 3 - broj glasova:</b></label>
+                    <input type="text" placeholder="Unesite broj glasova" name="votenumber" required>
+
+                    <label for="votenumber"><b>Partija 4 - broj glasova:</b></label>
+                    <input type="text" placeholder="Unesite broj glasova" name="votenumber" required>
+
+                    <label for="totalvotes"><b>Ukupan broj glasova:</b></label>
+                    <input type="text" placeholder="Unesite ukupan br. glasova" name="totalvotes" required>
+
+                    <label for="invalidvotes"><b>Broj nevažećih listića:</b></label>
+                    <input type="text" placeholder="Unesite broj nevažećih listića" name="invalidvotes" required>
+
+                    <label for="numberofvoters"><b>Broj birača:</b></label>
+                    <input type="text" placeholder="Unesite broj birača" name="numberofvoters" required>
+
+                    <label for="image"><b>Slika zapisnika:</b></label>
+                    <input type="file" placeholder="Unesite sliku zapisnika" name="image" required>
+
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Zapamti me
+                    </label>
+                    <div><a href="register.html">Registruj se</a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
