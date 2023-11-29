@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="header"> <!-- Zaglavlje stranice -->
+        <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
+    </div>
+    <div id="navbar-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Naslovna</a></li>
+                <li><a href="#">Izborni rezultati</a></li>
+                <li><a href="#">Kontrolori</a>
+                    <ul>
+                        <li><a href="controler_input.html">Unesi kontrolora</a></li>
+                        <li><a href="controler_list.html">Spisak kontrolora</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Izborne celine</a>
+                    <ul>
+                        <li><a href="#">Opstine</a>
+                            <ul>
+                                <li><a href="add_municipality.html">Unesi opstinu</a></li>
+                                <li><a href="list_municipality.html">Spisak opstina</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Izborna mesta</a>
+                            <ul>
+                                <li><a href="add_voting_place.html">Unesi izborno mesto</a></li>
+                                <li><a href="list_voting_place.html">Spisak izbornih mesta</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Vesti</a>
+                    <ul>
+                        <li><a href="#">Unesi vest</a></li>
+                        <li><a href="#">Azuriraj vesti</a></li>
+                    </ul>
+                </li>
+                <li><a href="first_nav.html">Izloguj se</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="login-container">
+        <form>
+            <div class="form-container">
+                <label for="munname"><b>Ime opstine</b></label>
+                <input type="text" placeholder="Opstina" name="munname" required>
+                <button type="submit">Unesi opstinu</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="footer">
+        <h1></h1>
+    </div>
+</body>
+</html>
