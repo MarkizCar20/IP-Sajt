@@ -22,13 +22,13 @@
         </nav>
     </div>
     <div id="login-container">
-        <form>
+        <form action="php/login.php" method="post">
             <div class="form-container">
                 <label for="uname"><b>E-mail adresa</b></label>
-                <input type="text" placeholder="Unesite E-mail adresu" name="uname" required>
+                <input type="text" placeholder="Unesite E-mail adresu" name="uname" id="email" required>
                 
                 <label for="psw"><b>Sifra</b></label>
-                <input type="password" placeholder="Unesite Sifru" name="psw" required>
+                <input type="password" placeholder="Unesite Sifru" name="psw" id="password" required>
                 
                 <button type="submit">Login</button>
                 <label>
