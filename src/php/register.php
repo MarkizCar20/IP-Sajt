@@ -2,7 +2,7 @@
 session_start();
 require_once('db_connect.php');
 
-if($_SERVER['REQUEST_METHOD']==='POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ime = $_POST['name'];
     $email = $_POST['email'];
     $sifra = $_POST['psw'];
@@ -11,33 +11,39 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
     $telefon = $_POST['phone'];
     $izborno_mesto = $_POST['votingplace'];
 
-    $file_name = $_FILES['image']['name'];
-    $file_temp = $_FILES['image']['tmp_name'];
-    $file_type = $_FILES['image']['type'];
+    // Check if the voting place ID exists
+    $check_query = "SELECT idIzbornoMesto FROM IzbornaMestaRezultati WHERE idIzbornoMesto = ?";
+    $check_stmt = mysqli_prepare($conn, $check_query);
+    mysqli_stmt_bind_param($check_stmt, "i", $izborno_mesto);
+    mysqli_stmt_execute($check_stmt);
+    $check_result = mysqli_stmt_get_result($check_stmt);
 
-    $upload_dir = 'uploads/';
+    if (mysqli_num_rows($check_result) > 0) {
+        // Move uploaded file
+        $file_name = $_FILES['image']['name'];
+        $file_temp = $_FILES['image']['tmp_name'];
+        $file_type = $_FILES['image']['type'];
+        $upload_dir = 'uploads/';
 
-    if (!file_exists($upload_dir)) {
-        mkdir($upload_dir, 0777, true); // 0777 gives full permissions, use more restrictive permissions as needed
-    }
+        if (!file_exists($upload_dir)) {
+            mkdir($upload_dir, 0777, true); // 0777 gives full permissions, use more restrictive permissions as needed
+        }
 
-    $target_file = $upload_dir . basename($file_name);
-    move_uploaded_file($file_temp, $target_file);
+        $target_file = $upload_dir . basename($file_name);
+        move_uploaded_file($file_temp, $target_file);
 
-    $querry = "INSERT INTO Kontrolori (idIzbornoMesto, Ime, Prezime, Telefon, Email, Sifra, Adresa, Slike) VALUE (?, ?, ?, ?, ?, ?, ?, ?)";
-
-    try {
-        $stmt = mysqli_prepare($conn, $querry);
+        // Insert user data into database
+        $query = "INSERT INTO Kontrolori (idIzbornoMesto, Ime, Prezime, Telefon, Email, Sifra, Adresa, Slike) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "isssssss", $izborno_mesto, $ime, $prezime, $telefon, $email, $sifra, $adresa, $target_file);
 
         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>showAlert('Registration successful!');</script>";
-            exit();
+            echo "Registration successful!";
         } else {
-            throw new Exception("Failed to execute statement.");
+            echo "Error: Registration failed. Please try again.";
         }
-    } catch (Exception $e) {
-        echo "<script>showAlert('Registration failed. Please try again.');</script>";
+    } else {
+        echo "Error: Invalid voting place ID. Please enter a valid ID.";
     }
 }
 ?>
