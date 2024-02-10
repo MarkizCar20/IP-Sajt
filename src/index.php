@@ -1,3 +1,7 @@
+<?php
+include 'php/session_check.php'
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +46,15 @@
                         <li><a href="#">Azuriraj vesti</a></li>
                     </ul>
                 </li>
-                <li><a href="first_nav.html">Izloguj se</a></li>
+                <li>
+                    <?php
+                    if (isset($logout_link)) {
+                        echo $logout_link;
+                    } elseif (isset($login_link)) {
+                        echo $login_link;
+                    }
+                    ?>
+                </li>
             </ul>
         </nav>
     </div>
