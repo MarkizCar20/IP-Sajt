@@ -357,6 +357,37 @@ li > a:only-child:after { content: ''; }
     background-color: white;
 }
 
+#municipality-page-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    text-decoration: none;
+    width: 100%;
+}
+
+#municipality-list-element {
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+#municipality-page-container li {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 100%;
+}
+
+#municipality-page-container li p {
+    margin: 0px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+
+
 .dropdown {
     padding: 8px;
     font-size: 16px;

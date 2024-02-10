@@ -1,3 +1,8 @@
+<?php
+include 'php/session_check.php';
+include 'php/db_connect.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,15 +51,32 @@
             </ul>
         </nav>
     </div>
-    <div id="main-page-container"> <!-- Glavni deo stranice -->
-        <div class="left-main-page"> <!-- Levi deo glavne strane -->
-            <ul class="controler-list-container">
-                <li><p>Opstina 1</p><button>Izbrisi</button></li>
-                <li><p>Opstina 2</p><button>Izbrisi</button></li>
-                <li><p>Opstina 3</p><button>Izbrisi</button></li>
-                <li><p>Opstina 4</p><button>Izbrisi</button></li>
-            </ul>
-        </div>
+    <div id="municipality-page-container"> <!-- Glavni deo stranice -->
+        <ul id="municipality-list-element">
+            <li>
+                <p>Opstina</p>
+                <p>Broj izbornih mesta</p>
+                <p>Broj obradjenih izbornih mesta</p>
+            </li>
+            <?php
+            require_once('php/db_connect.php');
+            $query = "SELECT * FROM Opstina";
+            $result = mysqli_query($conn, $query);
+
+            if(mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<li>";
+                    echo "<p><strong>" . $row['Opstina'] . "</strong></p>";
+                    echo "<p><strong>" . $row['BrojMesta'] . "</strong></p>";
+                    echo "<p><strong>" . $row['BrojRezultata'] . "</strong></p>";
+                    echo "</li>";
+                }
+            }
+            else {
+                echo "<p>Opstine nisu ubacene</p>";
+            }
+            mysqli_close($conn);
+            ?>
     </div>
     <div class="footer">
         <h1></h1>
