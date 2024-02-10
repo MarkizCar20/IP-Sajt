@@ -42,8 +42,8 @@ include 'php/session_check.php'
                 </li>
                 <li><a href="#">Vesti</a>
                     <ul>
-                        <li><a href="#">Unesi vest</a></li>
-                        <li><a href="#">Azuriraj vesti</a></li>
+                        <li><a href="news_input.html">Unesi vest</a></li>
+                        <li><a href="news.html">Azuriraj vesti</a></li>
                     </ul>
                 </li>
                 <li>
