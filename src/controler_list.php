@@ -47,21 +47,47 @@
         </nav>
     </div>
     <div id="main-page-container"> <!-- Glavni deo stranice -->
-        <div class="left-main-page"> <!-- Levi deo glavne strane -->
-            <ul class="controler-list-container">
-                <li><p>Ime i Prezime Kontrolora</p><button><a href="update-controler.html">Azuriraj</a></button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-                <li><p>Ime i Prezime Kontrolora</p><button>Azuriraj</button><button>Izbrisi</button></li>
-            </ul>
-        </div>
+        <ul class="controler-list-container">
+            <?php
+            require_once('php/db_connect.php');
+            $query = "SELECT * FROM Kontrolori";
+            $result = mysqli_query($conn, $query);
+
+            if(mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<li>";
+                    echo "<p>". $row['Ime'] . " " . $row['Prezime'] . " id:" . $row['idKontrolora'] . "</p>";
+                    echo "<button onClick=\"redirectToAzuriraj(" . $row['idKontrolora'] . ")\">Azuriraj</button>";
+                    echo "<button onClick=\"deleteKontrolora(" . $row['idKontrolora'] . ")\"\>Izbrisi</button>";
+                    echo "</li>";
+                }
+            }
+            ?>
+        </ul>
     </div>
     <div class="footer">
         <h1></h1>
     </div>
+
+    <script>
+        function redirectToAzuriraj(id) {
+            window.location.href="adjust_controler.php?id=" + id;
+        }
+
+        function deleteKontrolora(id) {
+            if(confirm("Da li sigurno zelite da obrisete kontrolera?")) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200 ){
+                        setTimeout( () => {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                };
+                xhttp.open("GET", "php/delete_row.php?id=" + id, true);
+                xhttp.send();
+            }
+        }
+    </script>
 </body>
 </html>
