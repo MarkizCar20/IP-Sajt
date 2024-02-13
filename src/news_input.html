@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="js/clock.js"></script>
 </head>
 <body>
     <div class="header">
@@ -33,23 +34,44 @@
             </uL>
         </nav>
     </div>
-        <div id="news-page-container">
-            <form method="post" enctype="multipart/form-data" id="newsForm">
-                <div class="form-container">
-                    <label for="naslov">Naslov:</label><br>
-                    <input type="text" id="naslov" name="naslov" required><br>
-                    
-                    <label for="datum">Datum:</label><br>
-                    <input type="date" id="datum" name="datum" required><br>
-                    
-                    <label for="sadrzaj">Sadrzaj:</label><br>
-                    <textarea id="sadrzaj" name="sadrzaj" required></textarea><br>
-                    
-                    <button type="button" onclick="submitForm()">Dodaj Vest</button>
-                    <div id="alert-container"></div>
-                </div>
-            </form>
-        </div>
+    <div id="news-page-container">
+        <form method="post" enctype="multipart/form-data" id="newsForm">
+            <div class="form-container">
+                <label for="naslov">Naslov:</label><br>
+                <input type="text" id="naslov" name="naslov" required><br>
+
+                <label for="datum">Datum:</label><br>
+                <input type="date" id="datum" name="datum" required><br>
+
+                <label for="sadrzaj">Sadrzaj:</label><br>
+                <textarea id="sadrzaj" name="sadrzaj" required></textarea><br>
+
+                <button type="button" onclick="submitForm()">Dodaj Vest</button>
+                <div id="alert-container"></div>
+            </div>
+        </form>
+    </div>
+
+    <div id="clock-container">
+        <!--dodavanje kazaljki na sat-->
+        <div class="clock-hand" id="hour-hand"></div>
+        <div class="clock-hand" id="minute-hand"></div>
+        <div class="clock-hand" id="second-hand"></div>
+        <!--dodavanje brojeva na sat-->
+        <div class="number" id="number-12">12</div>
+        <div class="number" id="number-1">1</div>
+        <div class="number" id="number-2">2</div>
+        <div class="number" id="number-3">3</div>
+        <div class="number" id="number-4">4</div>
+        <div class="number" id="number-5">5</div>
+        <div class="number" id="number-6">6</div>
+        <div class="number" id="number-7">7</div>
+        <div class="number" id="number-8">8</div>
+        <div class="number" id="number-9">9</div>
+        <div class="number" id="number-10">10</div>
+        <div class="number" id="number-11">11</div>
+        <div class="point" id="point"></div>
+    </div>
 
     <script>
         function submitForm() {
@@ -59,12 +81,12 @@
                 var inputDate = new Date(document.getElementById('datum').value);
                 var minDate = new Date('1900-01-01');
                 var maxDate = new Date('2100-12-31');
-                
+
                 if (inputDate >= minDate && inputDate <= maxDate) {
                     var formData = new FormData(form);
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', 'php/add_news.php', true);
-                    xhr.onreadystatechange = function() {
+                    xhr.onreadystatechange = function () {
                         if (xhr.readyState == 4) {
                             if (xhr.status == 200) {
                                 if (xhr.responseText.trim() === "New record created successfully") {
@@ -93,7 +115,7 @@
             document.getElementById('alert-container').innerHTML = "<div class='alert'>" + message + "</div>";
         }
     </script>
-    
+
     <div class="footer">
         <h1></h1>
     </div>

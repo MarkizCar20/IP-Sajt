@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="js/clock.js"></script>
 </head>
 <body>
-    <div class="header"> <!-- Zaglavlje stranice -->
+    <div class="header">
+        <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
     <div id="navbar-container">
@@ -15,7 +17,8 @@
             <uL>
                 <li><a href="first_nav.html">Naslovna</a></li>
                 <li><a href="#">Izborni rezultati</a></li>
-                <li><a href="news.html">Vesti</a>
+                <li>
+                    <a href="news.html">Vesti</a>
                     <ul>
                         <li><a href="add_news.html">Unesi vest</a></li>
                         <li><a href="news_input.html">Azuriraj vesti</a></li>
@@ -25,8 +28,10 @@
             </uL>
         </nav>
     </div>
-    <div id="main-page-container"> <!-- Glavni deo stranice -->
-        <div class="left-main-page"> <!-- Levi deo glavne strane -->
+    <div id="main-page-container">
+        <!-- Glavni deo stranice -->
+        <div class="left-main-page">
+            <!-- Levi deo glavne strane -->
             <ul class="opstine-container">
                 <li>
                     <p>Opstina 1</p>
@@ -49,7 +54,7 @@
                         <li>Stranka 1, glasovi: </li>
                         <li>Stranka 1, glasovi: </li>
                     </ul>
-                </li>  
+                </li>
                 <li>
                     <p>Opstina 3</p>
                     <ul>
@@ -74,7 +79,8 @@
                 </li>
             </ul>
         </div>
-        <div class="right-main-page"> <!-- Desni deo glavne strane --> <!-- Ne prikazuje se na mobilnoj verziji -->
+        <div class="right-main-page">
+            <!-- Desni deo glavne strane --> <!-- Ne prikazuje se na mobilnoj verziji -->
             <div class="upper-right-main-page">
                 <p> Pretraga opstina po imenu </p>
                 <div class="search_opstine_container">
@@ -113,6 +119,26 @@
     </div>
     <div class="footer">
         <h1></h1>
+    </div>
+    <div id="clock-container">
+        <!--dodavanje kazaljki na sat-->
+        <div class="clock-hand" id="hour-hand"></div>
+        <div class="clock-hand" id="minute-hand"></div>
+        <div class="clock-hand" id="second-hand"></div>
+        <!--dodavanje brojeva na sat-->
+        <div class="number" id="number-12">12</div>
+        <div class="number" id="number-1">1</div>
+        <div class="number" id="number-2">2</div>
+        <div class="number" id="number-3">3</div>
+        <div class="number" id="number-4">4</div>
+        <div class="number" id="number-5">5</div>
+        <div class="number" id="number-6">6</div>
+        <div class="number" id="number-7">7</div>
+        <div class="number" id="number-8">8</div>
+        <div class="number" id="number-9">9</div>
+        <div class="number" id="number-10">10</div>
+        <div class="number" id="number-11">11</div>
+        <div class="point" id="point"></div>
     </div>
 </body>
 </html>

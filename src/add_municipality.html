@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="js/clock.js"></script>
 </head>
 <body>
-    <div class="header"> <!-- Zaglavlje stranice -->
+    <div class="header">
+        <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
     <div id="navbar-container">
@@ -15,21 +17,25 @@
             <ul>
                 <li><a href="index.html">Naslovna</a></li>
                 <li><a href="#">Izborni rezultati</a></li>
-                <li><a href="#">Kontrolori</a>
+                <li>
+                    <a href="#">Kontrolori</a>
                     <ul>
                         <li><a href="controler_input.html">Unesi kontrolora</a></li>
                         <li><a href="controler_list.html">Spisak kontrolora</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Izborne celine</a>
+                <li>
+                    <a href="#">Izborne celine</a>
                     <ul>
-                        <li><a href="#">Opstine</a>
+                        <li>
+                            <a href="#">Opstine</a>
                             <ul>
                                 <li><a href="add_municipality.html">Unesi opstinu</a></li>
                                 <li><a href="list_municipality.html">Spisak opstina</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Izborna mesta</a>
+                        <li>
+                            <a href="#">Izborna mesta</a>
                             <ul>
                                 <li><a href="add_voting_place.html">Unesi izborno mesto</a></li>
                                 <li><a href="list_voting_place.html">Spisak izbornih mesta</a></li>
@@ -37,7 +43,8 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#">Vesti</a>
+                <li>
+                    <a href="#">Vesti</a>
                     <ul>
                         <li><a href="#">Unesi vest</a></li>
                         <li><a href="#">Azuriraj vesti</a></li>
@@ -51,15 +58,36 @@
         <form id="municipalityForm" method="post" enctype="multipart/form-data">
             <div class="form-container">
                 <label for="munname"><b>Ime opstine</b></label>
-                <input type="text" placeholder="Opstina" name="opstina" id="opstina"required>
+                <input type="text" placeholder="Opstina" name="opstina" id="opstina" required>
                 <button type="button" onclick="submitForm()">Unesi opstinu</button>
                 <div id="alert-container"></div>
             </div>
         </form>
     </div>
-    
+
     <div class="footer">
         <h1></h1>
+    </div>
+
+    <div id="clock-container">
+        <!--dodavanje kazaljki na sat-->
+        <div class="clock-hand" id="hour-hand"></div>
+        <div class="clock-hand" id="minute-hand"></div>
+        <div class="clock-hand" id="second-hand"></div>
+        <!--dodavanje brojeva na sat-->
+        <div class="number" id="number-12">12</div>
+        <div class="number" id="number-1">1</div>
+        <div class="number" id="number-2">2</div>
+        <div class="number" id="number-3">3</div>
+        <div class="number" id="number-4">4</div>
+        <div class="number" id="number-5">5</div>
+        <div class="number" id="number-6">6</div>
+        <div class="number" id="number-7">7</div>
+        <div class="number" id="number-8">8</div>
+        <div class="number" id="number-9">9</div>
+        <div class="number" id="number-10">10</div>
+        <div class="number" id="number-11">11</div>
+        <div class="point" id="point"></div>
     </div>
 
     <script>
@@ -69,12 +97,12 @@
                 var formData = new FormData(form);
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', 'php/add_municipality.php', true);
-                xhr.onreadystatechange = function() {
+                xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4) {
                         if (xhr.status == 200) {
                             if (xhr.responseText.trim() === "Municipality added!") {
                                 showAlert('Opstina dodata uspesno');
-                                setTimeout( () => {
+                                setTimeout(() => {
                                     window.location.href = 'index.php';
                                 }, 2000);
                             }
