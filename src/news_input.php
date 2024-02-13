@@ -40,7 +40,7 @@
                 var inputDate = new Date(document.getElementById('datum').value);
                 var minDate = new Date('1900-01-01');
                 var maxDate = new Date('2100-12-31');
-                
+
                 if (inputDate >= minDate && inputDate <= maxDate) {
                     var formData = new FormData(form);
                     var xhr = new XMLHttpRequest();
@@ -74,7 +74,7 @@
             document.getElementById('alert-container').innerHTML = "<div class='alert'>" + message + "</div>";
         }
     </script>
-    
+
     <div class="footer">
         <h1></h1>
     </div>
