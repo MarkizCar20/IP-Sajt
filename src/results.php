@@ -11,6 +11,9 @@
         <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
+    <?php
+        include('navigation.php');
+    ?>
     <div id="main-page-container">
         <div id="results-container-wrapper">
             <div id="results-container">

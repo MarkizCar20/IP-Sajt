@@ -9,11 +9,9 @@
     <div class="header"> <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
-    <div id="navbar-container">
-        <nav> <!-- Navigacioni bar -->
-            <!-- Your navigation menu here -->
-        </nav>
-    </div>
+    <?php
+        include('navigation.php');
+    ?>
     <div id="main-page-container"> <!-- Glavni deo stranice -->
         <div class="left-main-page"> <!-- Levi deo glavne strane -->
             <ul class="controler-list-container" id="izbornaMestaList">

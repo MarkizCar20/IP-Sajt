@@ -11,28 +11,9 @@
         <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
-    <div id="navbar-container">
-        <nav>
-            <uL>
-                <li><a href="first_nav.html">Naslovna</a></li>
-                <li>
-                    <a href="results.html">Izborni rezultati</a>
-                    <ul>
-                        <li><a href="#">Unesi rezultate</a></li>
-                        <li><a href="#">Azuriraj rezultate</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="news.html">Vesti</a>
-                    <ul>
-                        <li><a href="add_news.html">Unesi vest</a></li>
-                        <li><a href="news_input.html">Azuriraj vesti</a></li>
-                    </ul>
-                </li>
-                <li><a href="login.html">Uloguj se</a></li>
-            </uL>
-        </nav>
-    </div>
+    <?php
+    include('navigation.php');
+    ?>
         <div id="news-page-container">
             <form method="post" enctype="multipart/form-data" id="newsForm">
                 <div class="form-container">

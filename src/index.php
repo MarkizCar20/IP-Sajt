@@ -13,11 +13,9 @@ include 'php/session_check.php'
     <div class="header"> <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
-    <div id="navbar-container">
         <?php
         include('navigation.php');
         ?>
-    </div>
     <div id="main-page-container"> <!-- Glavni deo stranice -->
         <div class="left-main-page"> <!-- Levi deo glavne strane -->
             <?php

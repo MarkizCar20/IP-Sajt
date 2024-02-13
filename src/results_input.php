@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <?php
+        include('navigation.php');
+    ?>
     <div id="main-page-container">
         <div class="form-container">
             <form action="update_results.php" method="post" enctype="multipart/form-data" id="resultsForm">

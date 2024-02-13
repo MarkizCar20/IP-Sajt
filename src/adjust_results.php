@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <?php
+        include('navigation.php');
+    ?>
     <h2>Update Results</h2>
     <div id="main-page-container">
         <div id="login-container">
