@@ -1,3 +1,7 @@
+<?php
+include 'php/session_check.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,6 @@
     <?php
         include('navigation.php');
     ?>
-    <h2>Update Results</h2>
     <div id="main-page-container">
         <div id="login-container">
             <form id="resultsForm" enctype="multipart/form-data">

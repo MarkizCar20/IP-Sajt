@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+include 'php/session_check.php'
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +12,6 @@
 </head>
 <body>
     <div class="header">
-        <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
     <?php
@@ -37,9 +40,9 @@
                 echo "<div id='party-results'>";
                 echo "<h3>Rezultati parlamentarnih izbora po strankama:</h3>";
                 echo "<div>";
-                echo "<p>Stranka Demokratskog Socijalizma: ($percentagePartija1% of $totalPartija1Votes)</p>";
-                echo "<p>Stranka Demokratskih Socijalista: ($percentagePartija2% of $totalPartija2Votes)</p>";
-                echo "<p>Stranka Zelenaskih levicarskih pokreta: ($percentagePartija3% of $totalPartija3Votes)</p>";
+                echo "<p>Stranka Demokratskog Socijalizma: ($percentagePartija1% of $totalVoters)</p>";
+                echo "<p>Stranka Demokratskih Socijalista: ($percentagePartija2% of $totalVoters)</p>";
+                echo "<p>Stranka Zelenaskih levicarskih pokreta: ($percentagePartija3% of $totalVoters)</p>";
                 echo "</div>";
                 echo "</div>";
 

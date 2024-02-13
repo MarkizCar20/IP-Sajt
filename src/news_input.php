@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+include 'php/session_check.php'
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

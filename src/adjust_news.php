@@ -1,4 +1,8 @@
 <?php
+include 'php/session_check.php'
+?>
+
+<?php
 require_once('php/db_connect.php');
 if(isset($_GET['Naslov'])) {
     $Naslov = mysqli_real_escape_string($conn, $_GET['Naslov']);

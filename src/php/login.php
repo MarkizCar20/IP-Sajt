@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['idKontrolora'];
         $_SESSION['username'] = $user['Ime'];
         if ($user['Admin']) {
-            $_SESSION['user_role'] = 'admin';
+            $_SESSION['user_role'] = 'Admin';
         }
         else {
-            $_SESSION['user_role'] = 'control';
+            $_SESSION['user_role'] = 'Control';
         }
         switch ($_SESSION['user_role']) {
             case 'control':
@@ -28,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: ../index.php');
                 break;
             default:
-                // echo($_SESSION['user_role']);
                 header('Location: ../index.php');
         }
     }
