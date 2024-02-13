@@ -141,6 +141,25 @@ li > a:only-child:after { content: ''; }
     overflow:auto;
     flex: 1;
     border: 1px solid whitesmoke;
+    list-style:none;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-main-page li {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-main-page ul {
+    list-style:none;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .opstine-container {
@@ -378,6 +397,8 @@ li > a:only-child:after { content: ''; }
     flex-direction: row;
     list-style: none;
     width: 100%;
+    max-height: 85%;
+    overflow: auto;
 }
 
 #municipality-page-container li p {
@@ -395,14 +416,45 @@ li > a:only-child:after { content: ''; }
     border-radius: 0px;
     width: 100%;
 }
-
+#results-container-wrapper {
+    width: 100%;
+    max-height: 80vh;
+    overflow: auto;
+}
 #results-container {
     background-color: white;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px; /* Add padding to the container */
+    box-sizing: border-box;/* Include padding and border in the container's total width and height */
+}
+
+#results-container p {
+    margin: 0;
+    padding: 2px;
+    border: 1px solid black;
+}
+#results-container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding: 5px;
+}
+#results-container ul li ul {
+    width: 100%;
+}
+
+#results-container ul li ul li {
+    margin: 0;
+    padding: 2px;
+    border: 1px solid black;
+    width: 100%;
 }
 
 @media (max-width: 612px) {
