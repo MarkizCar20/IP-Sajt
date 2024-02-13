@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result && mysqli_num_rows($result)>0) {
         $row = mysqli_fetch_assoc($result);
         $opstinaId = $row['idOpstina'];
+
+        $update_query = "UPDATE Opstina SET BrojMesta = COALESCE(BrojMesta, 0) + 1 WHERE idOpstina = ?";
+        $stmt = mysqli_prepare($conn, $update_query);
+        mysqli_stmt_bind_param($stmt, "i", $opstinaId);
+        mysqli_stmt_execute($stmt);
     }
 
     $insert_query = "INSERT INTO IzbornaMestaRezultati (IzbornoMesto, idOpstina) VALUES (?,?)";

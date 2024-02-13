@@ -14,99 +14,31 @@ include 'php/session_check.php'
     <div class="header"> <!-- Zaglavlje stranice -->
         <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
     </div>
-    <div id="navbar-container">
-        <nav> <!-- Navigacioni bar -->
-            <ul>
-                <li><a href="index.html">Naslovna</a></li>
-                <li><a href="#">Izborni rezultati</a></li>
-                <li><a href="#">Kontrolori</a>
-                    <ul>
-                        <li><a href="controler_input.html">Unesi kontrolora</a></li>
-                        <li><a href="controler_list.html">Spisak kontrolora</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Izborne celine</a>
-                    <ul>
-                        <li><a href="#">Opstine</a>
-                            <ul>
-                                <li><a href="add_municipality.html">Unesi opstinu</a></li>
-                                <li><a href="list_municipality.html">Spisak opstina</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Izborna mesta</a>
-                            <ul>
-                                <li><a href="add_voting_place.html">Unesi izborno mesto</a></li>
-                                <li><a href="list_voting_place.html">Spisak izbornih mesta</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#">Vesti</a>
-                    <ul>
-                        <li><a href="news_input.html">Unesi vest</a></li>
-                        <li><a href="news.html">Azuriraj vesti</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <?php
-                    if (isset($logout_link)) {
-                        echo $logout_link;
-                    } elseif (isset($login_link)) {
-                        echo $login_link;
-                    }
-                    ?>
-                </li>
-            </ul>
-        </nav>
-    </div>
+        <?php
+        include('navigation.php');
+        ?>
     <div id="main-page-container"> <!-- Glavni deo stranice -->
         <div class="left-main-page"> <!-- Levi deo glavne strane -->
-            <ul class="opstine-container">
-                <li>
-                    <p>Opstina 1</p>
-                    <ul>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Opstina 2</p>
-                    <ul>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                    </ul>
-                </li>  
-                <li>
-                    <p>Opstina 3</p>
-                    <ul>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Opstina 1</p>
-                    <ul>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                        <li>Stranka 1, glasovi: </li>
-                    </ul>
-                </li>
-            </ul>
+            <?php
+            include('php/opstina_results.php');
+            ksort($opstinaResults);
+            foreach ($opstinaResults as $opstinaName => $opstinaResult) {
+                echo "<li><strong>$opstinaName:</strong></li>";
+                echo "<ul>";
+                echo "<li>Ukupan broj glasova: {$opstinaResult['totalVotes']}</li>";
+                echo "<li>Nevažeći Listići: {$opstinaResult['invalidVotes']}</li>";
+                echo "<li>Ukupan broj birača: {$opstinaResult['totalVoters']}</li>";
+                // Output results for each party for the Opstina
+                echo "<li>Rezultati po strankama:";
+                echo "<ul>";
+                echo "<li>Stranka Demokratskog Socijalizma: ({$opstinaResult['percentagePartija1']}% of {$opstinaResult['partija1Votes']})</li>";
+                echo "<li>Stranka Demokratskih Socijalista: ({$opstinaResult['percentagePartija2']}% of {$opstinaResult['partija2Votes']})</li>";
+                echo "<li>Stranka Zelenaskih levicarskih pokreta: ({$opstinaResult['percentagePartija3']}% of {$opstinaResult['partija3Votes']})</li>";
+                echo "</ul>";
+                echo "</li>";
+                echo "</ul>";
+            }
+            ?>
         </div>
         <div class="right-main-page"> <!-- Desni deo glavne strane --> <!-- Ne prikazuje se na mobilnoj verziji -->
             <div class="upper-right-main-page">
@@ -118,28 +50,25 @@ include 'php/session_check.php'
             </div>
             <div class="lower-right-main-page">
                 <h2>VESTI O IZBORIMA</h2>
-                <div class="vesti_container">
-                    <ul>
-                        <li>
-                            <p>11.11.2022.</p>
-                            <p><a href="google.com"> ipsum dolor sit</a></p>
-                        </li>
-                        <li>
-                            <p>Vest 1</p>
-                            <p><a href="google.com"> ipsum dolor sit</a></p>
-                        </li>
-                        <li>
-                            <p>Vest 1</p>
-                            <p><a href="google.com"> ipsum dolor sit</a></p>
-                        </li>
-                        <li>
-                            <p>Vest 1</p>
-                            <p><a href="google.com"> ipsum dolor sit</a></p>
-                        </li>
-                        <li>
-                            <p>Vest 1</p>
-                            <p><a href="google.com"> ipsum dolor sit</a></p>
-                        </li>
+                <div class="news-page-container">
+                    <ul id="news-list-element">
+                        <?php
+                        require_once('php/db_connect.php');
+                        $query = "SELECT * FROM Vesti";
+                        $result = mysqli_query($conn, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<li>";
+                                echo "<h5><strong>" . $row['Naslov'] . "</strong></h5>";
+                                echo "<p>Datum: " . $row['Datum'] . "</p>";
+                                echo "<p>" . $row['Sadrzaj'] . "</p>";
+                                echo "</li>";
+                            }
+                        } else {
+                            echo "<p>No news available.</p>";
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

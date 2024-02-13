@@ -34,16 +34,9 @@ if(isset($_GET['id'])) {
         <div class="header"> <!-- Zaglavlje stranice -->
             <h1>REPUBLICKI IZBORI REPUBLIKE SRBIJE</h1>
         </div>
-        <div id="navbar-container">
-            <nav>
-                <uL>
-                    <li><a href="first_nav.html">Naslovna</a></li>
-                    <li><a href="#">Izborni rezultati</a></li>
-                    <li><a href="news.html">Vesti</a></li>
-                    <li><a href="login.html">Uloguj se</a></li>
-                </uL>
-            </nav>
-        </div>
+        <?php
+        include('navigation.php');
+        ?>
 
         <div id="login-container">
             <form method="post" enctype="multipart/form-data" id="registrationForm">

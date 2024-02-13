@@ -22,14 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         switch ($_SESSION['user_role']) {
             case 'control':
-                header('Location: ../control_nav.html');
+                header('Location: ../index.php');
                 break;
             case 'admin':
-                header('Location: ../index.html');
+                header('Location: ../index.php');
                 break;
             default:
                 // echo($_SESSION['user_role']);
-                header('Location: ../first_nav.html');
+                header('Location: ../index.php');
         }
     }
     else {
