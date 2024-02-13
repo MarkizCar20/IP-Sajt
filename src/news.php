@@ -52,6 +52,8 @@ include 'php/db_connect.php';
                         echo "<h5><strong>" . $row['Naslov'] . "</strong></h5>";
                         echo "<p>Datum: " . $row['Datum'] . "</p>";
                         echo "<p>" . $row['Sadrzaj'] . "</p>";
+                        echo "<button onClick=\"deleteNews('" . $row['Naslov'] . "')\">Izbrisi Vest</button>";
+                        echo "<button onClick=\"adjustNews('" . $row['Naslov'] . "')\">Azuriraj Vest</button>";
                         echo "</li>";
                     }
                 } else {
@@ -65,5 +67,26 @@ include 'php/db_connect.php';
     <div class="footer">
         <h1></h1>
     </div>
+
+    <script>
+        function adjustNews(Naslov) {
+            window.location.href = "adjust_news.php?Naslov=" + Naslov;
+        }
+
+        function deleteNews(Naslov) {
+            if(confirm("Da li sigurno zelite da obrisete Vest")) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        setTimeout( () => {
+                            window.location.reload();
+                        }, 1500);
+                    }
+                };
+                xhttp.open("GET", "php/delete_news.php?Naslov=" + Naslov, true);
+                xhttp.send()
+            }
+        }
+    </script>
 </body>
 </html>

@@ -69,6 +69,7 @@ include 'php/db_connect.php';
                     echo "<p><strong>" . $row['Opstina'] . "</strong></p>";
                     echo "<p><strong>" . $row['BrojMesta'] . "</strong></p>";
                     echo "<p><strong>" . $row['BrojRezultata'] . "</strong></p>";
+                    echo "<button onClick=\"deleteOpstina('" . $row['Opstina'] . "')\">Izbrisi</button>";
                     echo "</li>";
                 }
             }
@@ -81,5 +82,22 @@ include 'php/db_connect.php';
     <div class="footer">
         <h1></h1>
     </div>
+
+    <script>
+        function deleteOpstina(opstina) {
+            if(confirm("Da li sigurno zelite obrisati opstinu?")) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        setTimeout( () => {
+                            window.location.reload();
+                        }, 1500);
+                    }
+                };
+                xhttp.open("GET", "php/delete_opstina_row.php?opstina=" + opstina, true);
+                xhttp.send();
+            }
+        }
+    </script>
 </body>
 </html>
